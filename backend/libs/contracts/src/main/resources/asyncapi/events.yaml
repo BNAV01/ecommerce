@@ -1,0 +1,100 @@
+asyncapi: 2.6.0
+info:
+  title: Ecommerce Events
+  version: 1.0.0
+defaultContentType: application/json
+channels:
+  product.created:
+    subscribe:
+      message:
+        $ref: '#/components/messages/ProductCreated'
+  product.updated:
+    subscribe:
+      message:
+        $ref: '#/components/messages/ProductUpdated'
+  sku.updated:
+    subscribe:
+      message:
+        $ref: '#/components/messages/SkuUpdated'
+  order.created:
+    subscribe:
+      message:
+        $ref: '#/components/messages/OrderCreated'
+  order.confirmed:
+    subscribe:
+      message:
+        $ref: '#/components/messages/OrderConfirmed'
+  order.cancelled:
+    subscribe:
+      message:
+        $ref: '#/components/messages/OrderCancelled'
+  inventory.stock-reserved:
+    subscribe:
+      message:
+        $ref: '#/components/messages/InventoryReserved'
+  inventory.stock-rejected:
+    subscribe:
+      message:
+        $ref: '#/components/messages/InventoryRejected'
+  inventory.stock-released:
+    subscribe:
+      message:
+        $ref: '#/components/messages/InventoryReleased'
+  notification.email-requested:
+    subscribe:
+      message:
+        $ref: '#/components/messages/NotificationEmailRequested'
+components:
+  messages:
+    ProductCreated:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    ProductUpdated:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    SkuUpdated:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    OrderCreated:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    OrderConfirmed:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    OrderCancelled:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    InventoryReserved:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    InventoryRejected:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    InventoryReleased:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+    NotificationEmailRequested:
+      payload:
+        $ref: '#/components/schemas/EventEnvelope'
+  schemas:
+    EventEnvelope:
+      type: object
+      required:
+        - eventId
+        - type
+        - occurredAt
+        - correlationId
+      properties:
+        eventId:
+          type: string
+          format: uuid
+        type:
+          type: string
+        occurredAt:
+          type: string
+          format: date-time
+        correlationId:
+          type: string
+        payload:
+          type: object
+          additionalProperties: true

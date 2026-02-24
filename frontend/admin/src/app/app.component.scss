@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+.admin-shell {
+  min-height: 100vh;
+  padding: 2rem;
+  background: radial-gradient(circle at top right, #1f2937 0%, #0b1220 45%, #070b14 100%);
+  color: #e5e7eb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.tag {
+  margin: 0;
+  color: #93c5fd;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.subtitle {
+  color: #cbd5e1;
+  max-width: 54rem;
+}
+
+.meta-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.meta-grid article,
+.module-card {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.meta-grid h2,
+.module-card h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.meta-grid p,
+.module-card p {
+  margin: 0.45rem 0;
+  color: #cbd5e1;
+}
+
+.modules {
+  max-width: 72rem;
+  margin: 1rem auto 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+code {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #93c5fd;
+  overflow-wrap: anywhere;
+}

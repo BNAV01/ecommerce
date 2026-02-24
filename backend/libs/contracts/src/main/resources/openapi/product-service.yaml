@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Product Service API
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /products:
+    get:
+      summary: List products
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create product
+      responses:
+        '201':
+          description: Created
+  /products/{id}:
+    get:
+      summary: Get product by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+    put:
+      summary: Update product
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Delete product
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        sku:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: double
+        currency:
+          type: string
+        active:
+          type: boolean

@@ -1,0 +1,11 @@
+package com.ecommerce.inventory.repository;
+
+import com.ecommerce.inventory.domain.OutboxEvent;
+import java.util.List;
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OutboxEventRepository extends JpaRepository<OutboxEvent, UUID> {
+
+    List<OutboxEvent> findTop100ByPublishedAtIsNullOrderByOccurredAtAsc();
+}

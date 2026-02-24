@@ -1,0 +1,50 @@
+{
+  "name": "ecommerce-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:shop": "cross-env NODE_PATH=./node_modules ng serve shop --port 4200 --host 0.0.0.0",
+    "start:admin": "cross-env NODE_PATH=./node_modules ng serve admin --port 4201 --host 0.0.0.0",
+    "build": "cross-env NODE_PATH=./node_modules ng build shop && cross-env NODE_PATH=./node_modules ng build admin",
+    "build:shop": "cross-env NODE_PATH=./node_modules ng build shop",
+    "build:admin": "cross-env NODE_PATH=./node_modules ng build admin",
+    "test": "cross-env NODE_PATH=./node_modules ng test shop --watch=false && cross-env NODE_PATH=./node_modules ng test admin --watch=false",
+    "lint": "cross-env NODE_PATH=./node_modules ng lint",
+    "generate:api": "bash ./scripts/generate-api-clients.sh",
+    "generate:api:ps": "powershell -ExecutionPolicy Bypass -File ./scripts/generate-api-clients.ps1"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.2.0",
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "angular-oauth2-oidc": "^18.0.0",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.6.2",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "@jridgewell/remapping": "^2.3.5",
+    "@openapitools/openapi-generator-cli": "^2.16.0",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
+    "jasmine-core": "~5.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^4.2.1",
+    "typescript": "~5.8.2"
+  }
+}

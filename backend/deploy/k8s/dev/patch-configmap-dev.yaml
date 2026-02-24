@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ecommerce-config
+  namespace: ecommerce
+data:
+  SPRING_PROFILES_ACTIVE: "dev"
+  SHOP_ORIGIN: "http://localhost:4200"
+  ADMIN_ORIGIN: "http://localhost:4201"

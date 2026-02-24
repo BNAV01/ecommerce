@@ -1,0 +1,27 @@
+name: k8s-deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Deploy manifests (placeholder)
+        run: |
+          echo "Configure kubeconfig and registry before enabling this workflow"
+          kubectl apply -k backend/deploy/k8s/${{ github.event.inputs.environment }}

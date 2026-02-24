@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base
+patches:
+  - target:
+      kind: ConfigMap
+      name: ecommerce-config
+    path: patch-configmap-prod.yaml
+  - target:
+      kind: Ingress
+      name: api-gateway
+    path: patch-ingress-prod.yaml

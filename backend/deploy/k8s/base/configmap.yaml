@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ecommerce-config
+  namespace: ecommerce
+data:
+  SPRING_PROFILES_ACTIVE: "prod"
+  KEYCLOAK_ISSUER_URI: "http://keycloak:8181/realms/ecommerce"
+  KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+  TOPIC_PRODUCT_CREATED: "product.created"
+  TOPIC_PRODUCT_UPDATED: "product.updated"
+  TOPIC_SKU_UPDATED: "sku.updated"
+  TOPIC_ORDER_CREATED: "order.created"
+  TOPIC_ORDER_CONFIRMED: "order.confirmed"
+  TOPIC_ORDER_CANCELLED: "order.cancelled"
+  TOPIC_INVENTORY_STOCK_RESERVED: "inventory.stock-reserved"
+  TOPIC_INVENTORY_STOCK_REJECTED: "inventory.stock-rejected"
+  TOPIC_INVENTORY_STOCK_RELEASED: "inventory.stock-released"
+  TOPIC_NOTIFICATION_EMAIL_REQUESTED: "notification.email-requested"
+  SHOP_ORIGIN: "https://shop.example.com"
+  ADMIN_ORIGIN: "https://admin.example.com"

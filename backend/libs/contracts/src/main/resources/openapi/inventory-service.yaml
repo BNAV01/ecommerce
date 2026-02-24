@@ -1,0 +1,31 @@
+openapi: 3.0.3
+info:
+  title: Inventory Service API
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /inventory/{sku}:
+    get:
+      summary: Get stock by sku
+      responses:
+        '200':
+          description: OK
+  /inventory/adjustments:
+    post:
+      summary: Adjust stock
+      responses:
+        '200':
+          description: Adjusted
+  /inventory/reservations/reserve:
+    post:
+      summary: Reserve stock
+      responses:
+        '200':
+          description: Reserved or rejected
+  /inventory/reservations/release:
+    post:
+      summary: Release stock
+      responses:
+        '200':
+          description: Released

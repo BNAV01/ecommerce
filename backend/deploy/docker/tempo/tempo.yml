@@ -1,0 +1,25 @@
+server:
+  http_listen_port: 3110
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        http:
+        grpc:
+
+storage:
+  trace:
+    backend: local
+    local:
+      path: /tmp/tempo/traces
+
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+      cluster: local
+
+compactor:
+  compaction:
+    block_retention: 48h

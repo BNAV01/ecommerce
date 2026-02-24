@@ -1,0 +1,13 @@
+openapi: 3.0.3
+info:
+  title: Notification Service API
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /notifications/test-email:
+    post:
+      summary: Send test email
+      responses:
+        '202':
+          description: Accepted

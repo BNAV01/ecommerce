@@ -1,0 +1,60 @@
+server:
+  port: ${GATEWAY_PORT:9000}
+
+spring:
+  application:
+    name: api-gateway
+  main:
+    web-application-type: reactive
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://keycloak:8181/realms/ecommerce}
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - ${SHOP_ORIGIN:http://localhost:4200}
+              - ${ADMIN_ORIGIN:http://localhost:4201}
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - '*'
+            exposedHeaders:
+              - X-Correlation-Id
+            allowCredentials: true
+      routes:
+        - id: product-service
+          uri: ${PRODUCT_SERVICE_URL:http://product-service:8080}
+          predicates:
+            - Path=/api/products/**
+        - id: order-service
+          uri: ${ORDER_SERVICE_URL:http://order-service:8081}
+          predicates:
+            - Path=/api/orders/**
+        - id: inventory-service
+          uri: ${INVENTORY_SERVICE_URL:http://inventory-service:8082}
+          predicates:
+            - Path=/api/inventory/**
+        - id: notification-service
+          uri: ${NOTIFICATION_SERVICE_URL:http://notification-service:8083}
+          predicates:
+            - Path=/api/notifications/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,gateway
+  endpoint:
+    health:
+      probes:
+        enabled: true
