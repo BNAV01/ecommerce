@@ -1,42 +1,33 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { OAuthService } from 'angular-oauth2-oidc';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'shop-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet],
   template: `
-    <div class="min-h-screen">
-      <header class="border-b border-slate-200 bg-white">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <h1 class="text-xl font-bold">Shop</h1>
-          <nav class="flex items-center gap-3 text-sm font-medium">
-            <a routerLink="/catalog" routerLinkActive="text-brand-700" class="text-slate-600">Catalog</a>
-            <a routerLink="/cart" routerLinkActive="text-brand-700" class="text-slate-600">Cart</a>
-            <a routerLink="/checkout" routerLinkActive="text-brand-700" class="text-slate-600">Checkout</a>
-            <a routerLink="/orders" routerLinkActive="text-brand-700" class="text-slate-600">Orders</a>
+    <div class="shop-shell">
+      <header class="shop-header">
+        <div class="shop-container shop-header-inner">
+          <a class="shop-brand" href="#inicio" aria-label="Integral X Soluciones, 3AGE SOS">
+            <span class="shop-brand-sub">Integral X Soluciones</span>
+            <h1 class="shop-brand-title">3AGE SOS</h1>
+          </a>
+
+          <nav class="shop-nav" aria-label="Navegacion principal">
+            <a href="#solucion" class="shop-nav-link">Solucion</a>
+            <a href="#equipo" class="shop-nav-link">Equipo</a>
+            <a href="#contacto" class="shop-nav-link">Contacto</a>
           </nav>
-          <button
-            type="button"
-            class="rounded-lg bg-brand-500 px-3 py-2 text-xs font-semibold text-white"
-            (click)="logout()"
-          >
-            Logout
-          </button>
+
+          <a href="#contacto" class="shop-btn-primary">Agendar demo</a>
         </div>
       </header>
 
-      <main class="mx-auto max-w-6xl px-6 py-6">
+      <main class="shop-container shop-main">
         <router-outlet></router-outlet>
       </main>
     </div>
   `
 })
-export class AppComponent {
-  constructor(private readonly oauthService: OAuthService) {}
-
-  logout(): void {
-    this.oauthService.logOut();
-  }
-}
+export class AppComponent {}
