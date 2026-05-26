@@ -16,6 +16,7 @@ import { RouterOutlet } from '@angular/router';
 
           <nav class="shop-nav" aria-label="Navegacion principal">
             <a href="#solucion" class="shop-nav-link">Solucion</a>
+            <a href="#licencias" class="shop-nav-link">Licencias</a>
             <a href="#equipo" class="shop-nav-link">Equipo</a>
             <a href="#contacto" class="shop-nav-link">Contacto</a>
           </nav>

@@ -22,7 +22,7 @@ type TeamMember = {
 
         <div class="hero-actions">
           <a class="shop-btn-primary" href="#contacto">Agendar demo</a>
-          <a class="shop-btn-secondary" href="#solucion">Ver solucion</a>
+          <a class="shop-btn-secondary" href="#licencias">Ver licencias</a>
         </div>
 
         <dl class="proof-row" aria-label="Focos de 3AGE SOS">
@@ -108,6 +108,38 @@ type TeamMember = {
       </div>
     </section>
 
+    <section id="licencias" class="page-section license-section">
+      <div class="section-head">
+        <p class="section-kicker">Licencias</p>
+        <h2>Precio ajustado al volumen real de pacientes.</h2>
+        <p>
+          3AGE SOS no se vende como una licencia fija por usuario. El valor se define segun el volumen de
+          pacientes del centro medico, para que cada clinica pague de acuerdo con su escala operativa.
+        </p>
+      </div>
+
+      <div class="license-layout">
+        <article class="license-card">
+          <h3>Licenciamiento por volumen</h3>
+          <p>
+            Evaluamos cantidad de pacientes, demanda esperada de alertas SOS, cantidad de sedes y nivel de
+            acompanamiento requerido. Con esos datos se construye una propuesta comercial proporcional.
+          </p>
+          <ul>
+            <li>Centros pequenos con baja carga asistencial.</li>
+            <li>Clinicas medianas con operacion recurrente.</li>
+            <li>Instituciones de alto volumen o multiples sedes.</li>
+          </ul>
+        </article>
+
+        <aside class="license-summary">
+          <span>Modelo comercial</span>
+          <strong>Escalable por pacientes</strong>
+          <p>El precio final se confirma despues de revisar el volumen mensual y el alcance de implementacion.</p>
+        </aside>
+      </div>
+    </section>
+
     <section id="equipo" class="page-section">
       <div class="section-head">
         <p class="section-kicker">Equipo</p>
@@ -138,8 +170,8 @@ type TeamMember = {
         <p class="section-kicker">Contacto</p>
         <h2>Agenda una demo de 3AGE SOS.</h2>
         <p>
-          Cuentanos sobre la clinica, el representante legal y el contexto de operacion.
-          Con esa informacion podemos preparar una conversacion enfocada en tu caso.
+          Cuentanos sobre la clinica, el representante legal y el volumen aproximado de pacientes.
+          Con esa informacion podemos preparar una propuesta acorde a tu centro medico.
         </p>
 
         <aside class="direct-contact">
@@ -171,6 +203,17 @@ type TeamMember = {
           <label>
             Telefono
             <input name="phone" type="tel" placeholder="+54 9 11 2345 6789" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Volumen de pacientes
+            <input name="patientVolume" placeholder="Ej: 2.000 pacientes mensuales" />
+          </label>
+          <label>
+            Tipo de centro
+            <input name="centerType" placeholder="Clinica, red medica o centro medico" />
           </label>
         </div>
 
@@ -207,10 +250,6 @@ type TeamMember = {
       padding: 3rem 0 2.2rem;
     }
 
-    .hero-copy {
-      max-width: 720px;
-    }
-
     .section-kicker {
       margin: 0 0 0.85rem;
       color: var(--shop-accent);
@@ -224,7 +263,8 @@ type TeamMember = {
     h3,
     p,
     dl,
-    ol {
+    ol,
+    ul {
       margin: 0;
     }
 
@@ -258,10 +298,21 @@ type TeamMember = {
       max-width: 620px;
     }
 
-    .proof-row div {
+    .proof-row div,
+    .value-grid article,
+    .team-card,
+    .direct-contact,
+    .demo-form,
+    .license-card,
+    .license-summary,
+    .app-preview {
       border: 1px solid var(--shop-border);
       border-radius: 8px;
       background: #ffffff;
+      box-shadow: 0 14px 34px rgba(20, 36, 47, 0.07);
+    }
+
+    .proof-row div {
       padding: 0.9rem;
     }
 
@@ -279,12 +330,9 @@ type TeamMember = {
     }
 
     .app-preview {
-      border: 1px solid rgba(28, 63, 91, 0.18);
-      border-radius: 8px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 252, 251, 0.98)),
         linear-gradient(135deg, rgba(0, 127, 115, 0.12), rgba(47, 95, 143, 0.1));
-      box-shadow: 0 24px 60px rgba(22, 42, 58, 0.15);
       padding: 1rem;
     }
 
@@ -315,11 +363,6 @@ type TeamMember = {
       font-weight: 900;
     }
 
-    .preview-bar strong {
-      color: var(--shop-ink);
-      font-size: 1.05rem;
-    }
-
     .preview-bar small {
       color: var(--shop-accent);
       font-size: 0.78rem;
@@ -329,7 +372,6 @@ type TeamMember = {
     .sos-status {
       display: flex;
       gap: 0.85rem;
-      align-items: flex-start;
       margin-top: 1rem;
       border: 1px solid rgba(190, 57, 57, 0.18);
       border-radius: 8px;
@@ -373,19 +415,22 @@ type TeamMember = {
     .triage-grid article {
       border: 1px solid var(--shop-border);
       border-radius: 8px;
-      background: #ffffff;
       padding: 0.85rem;
     }
 
-    .triage-grid span {
+    .triage-grid span,
+    .direct-contact span,
+    .license-summary span {
       display: block;
-      color: var(--shop-muted);
+      color: var(--shop-accent);
       font-size: 0.72rem;
-      font-weight: 800;
+      font-weight: 900;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    .triage-grid strong {
+    .triage-grid strong,
+    .license-summary strong {
       display: block;
       margin-top: 0.35rem;
       color: var(--shop-ink);
@@ -439,7 +484,9 @@ type TeamMember = {
     }
 
     .section-head p:not(.section-kicker),
-    .contact-copy > p {
+    .contact-copy > p,
+    .license-card p,
+    .license-summary p {
       margin-top: 1rem;
       color: var(--shop-muted);
       font-size: 1rem;
@@ -455,16 +502,7 @@ type TeamMember = {
     }
 
     .value-grid article,
-    .team-card,
-    .direct-contact,
-    .demo-form {
-      border: 1px solid var(--shop-border);
-      border-radius: 8px;
-      background: #ffffff;
-      box-shadow: 0 14px 34px rgba(20, 36, 47, 0.07);
-    }
-
-    .value-grid article {
+    .team-card {
       padding: 1.1rem;
     }
 
@@ -475,17 +513,53 @@ type TeamMember = {
       letter-spacing: 0.14em;
     }
 
-    .value-grid h3 {
-      margin-top: 0.7rem;
+    .value-grid h3,
+    .license-card h3,
+    .team-card h3,
+    .direct-contact h3 {
       color: var(--shop-ink);
       font-size: 1.18rem;
     }
 
-    .value-grid p {
+    .value-grid p,
+    .team-description {
       margin-top: 0.65rem;
       color: var(--shop-muted);
       line-height: 1.6;
       font-size: 0.95rem;
+    }
+
+    .license-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .license-card,
+    .license-summary {
+      padding: 1.2rem;
+    }
+
+    .license-card ul {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      padding-left: 1.1rem;
+      color: var(--shop-muted);
+      line-height: 1.5;
+    }
+
+    .license-summary {
+      align-self: stretch;
+      display: grid;
+      align-content: center;
+    }
+
+    .license-summary strong {
+      color: var(--shop-blue);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
     }
 
     .team-grid {
@@ -496,7 +570,6 @@ type TeamMember = {
       display: grid;
       grid-template-columns: 64px 1fr;
       gap: 1rem;
-      padding: 1.2rem;
       align-items: center;
     }
 
@@ -511,11 +584,6 @@ type TeamMember = {
       font-weight: 900;
     }
 
-    .team-card h3 {
-      color: var(--shop-ink);
-      font-size: 1.15rem;
-    }
-
     .team-role {
       margin-top: 0.2rem;
       color: var(--shop-blue);
@@ -525,8 +593,6 @@ type TeamMember = {
 
     .team-description {
       grid-column: 1 / -1;
-      color: var(--shop-muted);
-      line-height: 1.6;
     }
 
     .contact-section {
@@ -537,27 +603,17 @@ type TeamMember = {
       padding: 4rem 0 4.5rem;
     }
 
-    .direct-contact {
-      margin-top: 1.4rem;
+    .direct-contact,
+    .demo-form {
       padding: 1.25rem;
     }
 
-    .direct-contact h3 {
-      color: var(--shop-ink);
-      font-size: 1.2rem;
+    .direct-contact {
+      margin-top: 1.4rem;
     }
 
     .direct-contact div {
       margin-top: 1rem;
-    }
-
-    .direct-contact span {
-      display: block;
-      color: var(--shop-accent);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
     }
 
     .direct-contact a {
@@ -570,7 +626,6 @@ type TeamMember = {
     .demo-form {
       display: grid;
       gap: 1rem;
-      padding: 1.25rem;
     }
 
     .form-row {
@@ -616,7 +671,8 @@ type TeamMember = {
 
     @media (max-width: 980px) {
       .sales-hero,
-      .contact-section {
+      .contact-section,
+      .license-layout {
         grid-template-columns: 1fr;
       }
 
@@ -646,10 +702,6 @@ type TeamMember = {
       .hero-copy h2 {
         font-size: clamp(2.4rem, 16vw, 4rem);
         max-width: 10ch;
-      }
-
-      .app-preview {
-        padding: 0.85rem;
       }
 
       .preview-bar {
